@@ -1,16 +1,28 @@
-import os
+import tkinter as tk
+from modules import *
+import customtkinter as ctk
 
 def main():
-    # Get the current working directory.
-    current_directory = os.getcwd()
+    windows =  ctk.CTk()
+    ctk.set_appearance_mode('dark')
+    
+    #windows = ttk()
+    window_width = 1230#windows.winfo_width()
+    window_height = 650#windows.winfo_height()
+    screen_width = windows.winfo_screenwidth()
+    screen_height = windows.winfo_screenheight()
 
-    # Create a list of all the files in the current directory.
-    files = os.listdir(current_directory)
+    x = int((screen_width / 2) - (window_width / 2))
+    y = int((screen_height / 2) - (window_height / 2))
 
-    # Print the list of files.
-    print("The following files are in the current directory:")
-    for file in files:
-        print(file)
+    windows.geometry(f"{window_width}x{window_height}+{x}+{y}")
+    #windows.geometry("x")
+    windows.resizable(False,False)
+    windows.title("File Explore")
+    
+    
+    windows.mainloop()
+    #dirCD()
 
 
 
